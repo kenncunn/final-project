@@ -16,7 +16,6 @@ student_chloe = {1: 'Advanced Hip Hop', 2: 'Introduction to Tap', 3: 'Technique'
 student_elise = {1: 'Advanced Tap', 2: 'Advanced Hip Hop', 3: 'Advanced Jazz', 4: 'Technique'}
 students = {'Abby': 12, 'Chloe': 20, 'Daniel': 13, 'Elise': 16}
 
-accounts = {}
 menu_choice = 0
 print_menu()
 
