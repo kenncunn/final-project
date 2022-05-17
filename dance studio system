@@ -1,0 +1,101 @@
+def print_menu():
+    print "1. List Student(s)"
+    print "2. Enroll new Student"
+    print "3. Remove Student(s) account"
+    print "4. Remove Student from Class"
+    print "5. Search for Student's Age"
+    print "6. Add Student to Class"
+    print "7. Modify Student Information"
+    print "8. Quit"
+    print
+    
+#These are the dictionaries used throughout the project
+student_abby = {1: 'Intermediate Jazz', 2: 'Advanced Ballet', 3: 'Beginning Lyrical', 4: 'Technique'}
+student_daniel = {1: 'Introduction to Tap', 2: 'Advanced Ballet', 3: 'Cheer'}
+student_chloe = {1: 'Advanced Hip Hop', 2: 'Introduction to Tap', 3: 'Technique', 4: 'Intermediate Ballet'}
+student_elise = {1: 'Advanced Tap', 2: 'Advanced Hip Hop', 3: 'Advanced Jazz', 4: 'Technique'}
+students = {'Abby': 12, 'Chloe': 20, 'Daniel': 13, 'Elise': 16}
+
+accounts = {}
+menu_choice = 0
+print_menu()
+
+while True:
+    menu_choice = int(input("Type in a number between 1 and 8 :\n "))
+    print 
+    #This option uses a sorting function to list the names in a specific order.
+    if menu_choice == 1:
+        print "List Student(s), in descending alphabetical order"
+        res = {key: val for key, val in sorted(students.items(), key = lambda ele: ele[0])}
+        print("Here are the Students listed in descending alphabetical order: " + str(res))
+        
+    #This option shows addition to the dictionary.
+    if menu_choice == 2:
+        print "Enroll new Student"
+        it = iter(raw_input('Please enter your students name and age: ').split())
+        students.update(dict(zip(it, it)))
+        print(students)
+        print("Your student has been enrolled! \nAdditional information may be required later.")
+      
+    #This menu option shows an example of a print and command function. 
+    if menu_choice == 3:
+        print "Remove Student(s) account"
+        remove = raw_input("Please enter the name of the student you would like to remove: ")
+        print("You have entered: ")
+        print(remove)
+        
+        print("Your student's account had been removed.")
+        
+    #This option removes a student from the dictionary, specifically the student Abby
+    if menu_choice == 4:
+        print "Remove Student from Class"
+        unenroll = raw_input("Please state which class you would\nlike to unenroll your student in: ")
+        print("You have entered: ")
+        print(unenroll)
+
+        need_to_remove = 4
+        student_abby.pop(need_to_remove, None)
+        print(student_abby)
+        
+    
+    #This option uses a search function to identify the students' ages    
+    if menu_choice == 5:
+        print "Search for Student's Age"
+        
+        entry = raw_input("Please enter the student's name to see their age: ")
+        
+        if entry == 'ALL':
+            for key in students.keys():
+                print(students[key])
+            
+        else:
+            if entry in students:
+                print(students[entry])
+                
+    #This option adds a new class to a student, specifically using Chloe as an example
+    if menu_choice == 6:
+        print "Add Student to Class"
+        
+        it = iter(raw_input('Please state how many total classes \n along with the new class: ').split())
+        student_chloe.update(dict(zip(it, it)))
+        print(student_chloe)
+        
+    #This option creates a brand new list of information separate from the dictionary. 
+    #It highlights modification. 
+    if menu_choice == 7:
+        print "Modify Student Information"
+        
+        modifications = []
+        modifications.append(raw_input('Please enter the name: '))
+        modifications.append(raw_input('Please enter the age: '))
+        students = raw_input().split(',')
+        print(modifications)
+        
+        print("Your information has been updated.")
+    
+    #This option quits the program. 
+    if menu_choice == 8:
+        print "Quitting Program"
+        
+        quit()
+        
