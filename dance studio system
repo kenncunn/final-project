@@ -91,13 +91,10 @@ while True:
     if menu_choice == 7:
         print "Modify Student Information"
         
-        modifications = []
-        modifications.append(raw_input('Please enter the name: '))
-        modifications.append(raw_input('Please enter the age: '))
-        students = raw_input().split(',')
-        print(modifications)
-        
-        print("Your information has been updated.")
+      it = iter(raw_input("Please enter the updated name and age of the student: ").split())
+        students.update(dict(zip(it,it)))
+        print("Updated list of students: ", students)
+        print("Your changes have been made!")
     
     #This option quits the program. 
     if menu_choice == 8:
