@@ -38,12 +38,19 @@ while True:
       
     #This menu option shows an example of a print and command function. 
     if menu_choice == 3:
-        print "Remove Student(s) account"
-        remove = raw_input("Please enter the name of the student you would like to remove: ")
-        print("You have entered: ")
-        print(remove)
+        print "Current list of students" 
+        print(students)
+        need_to_delete = raw_input("Enter the name of the student you would like to remove: ")
         
-        print("Your student's account had been removed.")
+        if need_to_delete in students:
+            del students[need_to_delete]
+        else :
+            print("Please enter an existing student's name.")
+                
+        print("\n")
+        print("Your account has been removed!")
+        print "Updated list of students" 
+        print(students)
         
     #This option removes a student from the dictionary, specifically the student Abby
     if menu_choice == 4:
